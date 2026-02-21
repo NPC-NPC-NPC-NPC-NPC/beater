@@ -6,8 +6,7 @@ import soundfile as sf
 import pyloudnorm as pyln
 from audiocomplib import AudioCompressor
 
-# Load an example audio file
-# (librosa comes with a built-in example: a short clip of music)
+# Load audio file
 y, sr = librosa.load('drums.wav')
 
 # Display the original waveform
@@ -35,7 +34,6 @@ meter = pyln.Meter(sr, block_size=min_segment_len)
 # Process each region separately
 target_loudness = -18.0  # target LUFS
 y_processed = np.zeros_like(y)
-
 
 # Create compressor with your chosen parameters
 compressor = AudioCompressor(
