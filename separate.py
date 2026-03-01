@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import demucs.separate
 import shlex
 import os
@@ -17,6 +19,11 @@ def separate_drums(input_audio_path: str, model: str = "htdemucs_ft", out_dir: s
     out_path = f"{out_dir}/{model}/input_audio/drums.wav"
     return out_path
 
-# Separate the drums from the full mix
-drum_audio_path = separate_drums("input_audio.wav")
-os.rename(drum_audio_path, "./drums.wav")
+
+def main():
+    # Separate the drums from the full mix
+    drum_audio_path = separate_drums("input_audio.wav")
+    os.rename(drum_audio_path, "./drums.wav")
+
+if __name__ == "__main__":
+    main()
